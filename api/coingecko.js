@@ -16,7 +16,7 @@ export async function get_token(id) {
       }
       const response_data = await response.json();
       const name = response_data?.name;
-      const price = response_data?.market_data.current_price.usd;
+      const price = response_data?.market_data?.current_price?.usd;
       const market_cap = response_data?.market_data?.market_cap?.usd;
 
       if (

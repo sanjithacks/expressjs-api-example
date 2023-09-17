@@ -12,10 +12,11 @@ app.get("/", (req, res) => {
 app.get("/api/v2", async (req, res) => {
   const { name } = req.query;
   try {
-    if (!name)
+    if (!name) {
       return res
         .status(400)
         .json({ status: 0, message: "Token name is missing" });
+    }
     const pullData = await get_token(name);
     if (pullData != null) {
       return res.status(200).json(pullData);
